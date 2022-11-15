@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const server = http.createServer((req, res) => {
   const data = fs.readFileSync("./index.html");
-  if ((url ="/")) {
+  if ((req.url ="/")) {
       res.writeHead(200)
     res.write(data);
     res.end();
