@@ -70,6 +70,27 @@ app.get("/headerResponse", function (req, res) {
 })
 
 
+app.get("/setCookie", function (req, res) {
+  res.cookie('name', 'Rabbil')
+  res.cookie('city', 'Dhaka')
+  res.cookie('age', '30 years old')
+  res.end("cookie set success")
+
+})
+
+
+app.get("/removeCookie", function (req, res) {
+
+  res.clearCookie('name')
+  res.clearCookie('age');
+  res.clearCookie('city')
+
+
+  res.end("cookie clear success")
+
+})
+
+
 
 app.listen(8000, function () {
   console.log("Server Run Success")
