@@ -1,11 +1,11 @@
-var express = require('express');
+const express = require('express');
 
 app = express();
 
 //Simple String Response
 // res.send()--> response Body
 // res.end()---> reponse ending point...
-app.get("/one", function (req, res) {
+app.get("/stringResponse", function (req, res) {
   res.end("This is simple string response ");
 });
 
@@ -16,12 +16,12 @@ app.post("/two", function (req, res) {
 
 
 // Response Status Code
-app.get("/three", function (req, res) {
+app.get("/statusCode", function (req, res) {
   res.status(201).end();
 })
 
 // JSON Response
-app.get("/four", function (req, res) {
+app.get("/jsonResponse", function (req, res) {
   let MyJSONArray = [
     {
       name: "Rabbil",
@@ -42,6 +42,33 @@ app.get("/four", function (req, res) {
   ]
   res.json(MyJSONArray);
 })
+
+// Response Download
+app.get("/download", function (req, res) {
+  res.download("./uploads/image.jpg");
+})
+
+
+
+// Response Redirect
+app.get("/Bangladesh", function (req, res) {
+  res.redirect("http://localhost:8000/India")
+})
+
+
+app.get("/India", function (req, res) {
+  res.send("This is india");
+})
+
+
+// response header
+app.get("/headerResponse", function (req, res) {
+  res.append("name", "Rabbil Hasan");
+  res.append("city", "Dhaka");
+  res.append("age", "30 Years Old");
+  res.status(201).end("Hello World");
+})
+
 
 
 app.listen(8000, function () {
