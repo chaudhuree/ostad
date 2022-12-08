@@ -45,7 +45,7 @@ app.get("/jsonResponse", function (req, res) {
 
 // Response Download
 app.get("/download", function (req, res) {
-  res.download("./uploads/image.jpg");
+  res.download("./file/image.jpg");
 })
 
 
@@ -89,7 +89,6 @@ app.get("/removeCookie", function (req, res) {
   res.end("cookie clear success")
 
 })
-
 
 
 app.listen(8000, function () {
